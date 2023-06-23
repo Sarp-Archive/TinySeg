@@ -1,0 +1,49 @@
+name: Build library examples
+
+on:
+    push:
+        branches: [ "development" ]
+
+jobs:
+
+    check-examples:
+        name: Build example sketches
+
+        runs-on: windows-latest
+
+        steps:
+        
+        - name: Checkout
+          uses: actions/checkout@v3
+        
+        - name: Setup Arduino CLI
+          uses: arduino/setup-arduino-cli@v1
+
+        - name: Install platform
+          run: |
+            arduino-cli core update-index
+            arduino-cli core install arduino:avr
+
+        - name: Copy library
+          shell: pwsh
+          run: |
+            New-Item -ItemType Directory -Force -Path ./out
+            New-Item -ItemType Directory -Force -Path ~/Documents/Arduino/libraries
+            Copy-Item -Recurse -Force -Path . ~/Documents/Arduino/libraries/TinySeg
+
+        - name: Compile Sketch 1
+          run: arduino-cli compile --fqbn arduino:avr:uno --output-dir ./out examples/Counter/Counter.ino
+
+        - name: Compile Sketch 2
+          run: arduino-cli compile --fqbn arduino:avr:uno --output-dir ./out examples/Scroll/Scroll.ino
+
+        - name: Compile Sketch 3
+          run: arduino-cli compile --fqbn arduino:avr:uno --output-dir ./out examples/Spinner/Spinner.ino
+
+        - name: Compile Sketch 4
+          run: arduino-cli compile --fqbn arduino:avr:uno --output-dir ./out examples/Wave/Wave.ino
+
+        - uses: actions/upload-artifact@v3
+          with:
+            name: Example_All_AvrUno
+            path: ./out

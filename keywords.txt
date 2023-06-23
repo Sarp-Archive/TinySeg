@@ -1,0 +1,7 @@
+Segment	                    KEYWORD1
+TinySeg       	            KEYWORD2
+7-Segment                   KEYWORD3
+Number                      KEYWORD4
+Digit                       KEYWORD5
+Digit-Group                 KEYWORD6
+Display                     KEYWORD7

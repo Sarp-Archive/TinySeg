@@ -1,0 +1,22 @@
+name: Check code linting
+
+on:
+    push:
+        branches: [ "development" ]
+
+jobs:
+
+    check-linting:
+        name: Check linting
+
+        runs-on: windows-latest
+
+        steps:
+        
+        - name: Checkout
+          uses: actions/checkout@v3
+        
+        - name: Check Linting
+          uses: arduino/arduino-lint-action@v1.0.2
+          with:
+            library-manager: update
