@@ -39,19 +39,19 @@
 */
 
 // Include the lib
-#include <Segment.h>
+#include <TinySeg.h>
 
 // Define the pins
-int charPins[] = { 15, 16, 17, 18, 14 }; // GND
-int segPins[] = { 22, 21, 20, 19, 13, 12, 11, 10 }; // VCC
+uint8_t charPins[] = { 15, 16, 17, 18, 14 }; // GND
+uint8_t segPins[] = { 22, 21, 20, 19, 13, 12, 11, 10 }; // VCC
 
 // Init the display
-Segment s(charPins, segPins);
+TinySeg s(charPins, segPins);
 
 // Vars for counting loop
 long previousMillis = 0;
-const long period = 1000;
-long counter = 0;
+const int period = 1000;
+uint8_t counter = 0;
 
 // Nothing to see here...
 void setup() {
@@ -61,9 +61,8 @@ void setup() {
 void loop() {
 
     // Use millis() to wait until next period
-    long currentMillis = millis();
-    if (currentMillis - previousMillis >= period) {
-        previousMillis = currentMillis;
+    if (millis() - previousMillis >= period) {
+        previousMillis = millis();
         
         s.Write(counter++);
 

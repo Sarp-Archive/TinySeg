@@ -39,22 +39,22 @@
 */
 
 // Include the lib
-#include <Segment.h>
+#include <TinySeg.h>
 
 // Define the pins
-int charPins[] = { 15, 16, 17, 18, 14 }; // GND
-int segPins[] = { 22, 21, 20, 19, 13, 12, 11, 10 }; // VCC
+uint8_t charPins[] = { 15, 16, 17, 18, 14 }; // GND
+uint8_t segPins[] = { 22, 21, 20, 19, 13, 12, 11, 10 }; // VCC
 
 // Init the display
-Segment s(charPins, segPins);
+TinySeg s(charPins, segPins);
 
 // Vars for scrolling loop
 long previousMillis = 0;
-const long period = 450;
+const int period = 450;
 
 // Put space before and after the text to make it more smooth
 const char* text = "     tinyseg hp 5082 7415     ";
-int last = 0;
+uint8_t last = 0;
 
 // Nothing to see here...
 void setup() {
@@ -64,11 +64,10 @@ void setup() {
 void loop() {
 
     // Use millis() to wait until next period
-    long currentMillis = millis();
-    if (currentMillis - previousMillis >= period) {
-        previousMillis = currentMillis;
+    if (millis() - previousMillis >= period) {
+        previousMillis = millis();
 
-        for (int i = 0; i < 5; i++){
+        for (uint8_t i = 0; i < 5; i++){
             s.SetDigit(i, text[last+i]);
         }
         last++;
