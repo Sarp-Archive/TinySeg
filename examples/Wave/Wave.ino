@@ -46,7 +46,7 @@ int charPins[] = { 15, 16, 17, 18, 14 }; // GND
 int segPins[] = { 22, 21, 20, 19, 13, 12, 11, 10 }; // VCC
 
 // Init the display
-Segment s(charPins, segPins);
+TinySeg s(charPins, segPins);
 
 // Vars for waving loop
 long previousMillis = 0;
