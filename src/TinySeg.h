@@ -5,6 +5,7 @@ class TinySeg {
 
     uint8_t charPins[5];
     uint8_t segmentPins[8];
+    
 
     TinySeg();
     TinySeg(uint8_t c[5], uint8_t s[8]);
@@ -22,7 +23,6 @@ class TinySeg {
 
 
     void Write(int num);
-    // void Write(char* text);
     void Write(char text[5]);
 
 
