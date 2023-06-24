@@ -22,7 +22,8 @@ class TinySeg {
 
 
     void Write(int num);
-    void Write(char* text);
+    // void Write(char* text);
+    void Write(char text[5]);
 
 
     void FillDisplay(bool state);
@@ -30,7 +31,7 @@ class TinySeg {
 
 
   private:
-      bool states[5][8] = {
+    bool states[5][8] = {
         { 0, 0, 0, 0, 0, 0, 0, 0 },
         { 0, 0, 0, 0, 0, 0, 0, 0 },
         { 0, 0, 0, 0, 0, 0, 0, 0 },

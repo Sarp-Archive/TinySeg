@@ -65,15 +65,20 @@ void TinySeg::Write(int num) {
         index++;
     }
 }
-void TinySeg::Write(char* text) {
-    uint8_t l = strlen(text);
-    uint8_t i = 0;
-    while(i < 5-l)
-    {
-        SetDigit(i++, GetEmpty());
-    }
-    for(uint8_t j = 0; j < l; j++){
-        SetDigit(i+j, text[j]);
+// void TinySeg::Write(char* text) {
+//     uint8_t l = strlen(text);
+//     uint8_t i = 0;
+//     while(i < 5-l)
+//     {
+//         SetDigit(i++, GetEmpty());
+//     }
+//     for(uint8_t j = 0; j < l; j++){
+//         SetDigit(i+j, text[j]);
+//     }
+// }
+void TinySeg::Write(char text[5]) {
+    for(uint8_t i = 0; i < 5; i++){
+        SetDigit(i, text[i]);
     }
 }
 
