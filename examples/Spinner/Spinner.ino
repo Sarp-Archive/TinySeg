@@ -42,8 +42,8 @@
 #include <TinySeg.h>
 
 // Define the pins
-int charPins[] = { 15, 16, 17, 18, 14 }; // GND
-int segPins[] = { 22, 21, 20, 19, 13, 12, 11, 10 }; // VCC
+uint8_t charPins[] = { 15, 16, 17, 18, 14 }; // GND
+uint8_t segPins[] = { 22, 21, 20, 19, 13, 12, 11, 10 }; // VCC
 
 // Init the display
 TinySeg s(charPins, segPins);
@@ -51,10 +51,10 @@ TinySeg s(charPins, segPins);
 // Vars for spinning loop
 long previousMillis = 0;
 const int period = 100;
-int counter = 0;
+uint8_t counter = 0;
 
 // Spinner animation keyframes
-int spinner[6][8] = {
+uint8_t spinner[6][8] = {
     {1,0,0,0,0,0,0,0},
     {0,1,0,0,0,0,0,0},
     {0,0,0,0,0,1,0,0},
