@@ -39,7 +39,7 @@
 */
 
 // Include the lib
-#include <Segment.h>
+#include <TinySeg.h>
 
 // Define the pins
 int charPins[] = { 15, 16, 17, 18, 14 }; // GND

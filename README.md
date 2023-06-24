@@ -41,7 +41,7 @@ You can open new issues and pull request to contribute. New example sketches wil
 ## Usage
 
 ```c++
-#include <Segment.h>
+#include <TinySeg.h>
 
 // Define the pins
 int charPins[] = { 15, 16, 17, 18, 14 }; // GND
