@@ -11,14 +11,14 @@ class TinySeg {
     void InitPins();
 
 
-    int* GetArray(char character);
-    int* GetArray(int num);
-    int* GetEmpty();
+    bool* GetArray(char character);
+    bool* GetArray(int num);
+    bool* GetEmpty();
 
 
     void SetDigit(int index, int num);
     void SetDigit(int index, char character);
-    void SetDigit(int index, int* array);
+    void SetDigit(int index, bool* array);
 
 
     void Write(int num);

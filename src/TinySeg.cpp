@@ -26,21 +26,21 @@ void TinySeg::InitPins() {
 }
 
 
-int* TinySeg::GetArray(char character) {
+bool* TinySeg::GetArray(char character) {
     int val = (int)character;
     if(val >= 0 && val <= 127)
         return asciiMap[val];
 
     return asciiMap[0];
 }
-int* TinySeg::GetArray(int num) {
+bool* TinySeg::GetArray(int num) {
     int val = num;
     if(val >= 0 && val <= 9)
         return asciiMap[val + 48];
 
     return asciiMap[0];
 }
-int* TinySeg::GetEmpty(){
+bool* TinySeg::GetEmpty(){
     return asciiMap[0];
 }
 
@@ -52,7 +52,7 @@ void TinySeg::SetDigit(int index, int num){
 void TinySeg::SetDigit(int index, char character){
     memcpy(states[index], GetArray(character), sizeof(states[index]));
 }
-void TinySeg::SetDigit(int index, int* array) {
+void TinySeg::SetDigit(int index, bool* array) {
     memcpy(states[index], array, sizeof(states[index]));
 }
 

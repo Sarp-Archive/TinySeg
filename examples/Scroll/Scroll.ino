@@ -50,7 +50,7 @@ TinySeg s(charPins, segPins);
 
 // Vars for scrolling loop
 long previousMillis = 0;
-const long period = 450;
+const int period = 450;
 
 // Put space before and after the text to make it more smooth
 const char* text = "     tinyseg hp 5082 7415     ";
@@ -64,9 +64,8 @@ void setup() {
 void loop() {
 
     // Use millis() to wait until next period
-    long currentMillis = millis();
-    if (currentMillis - previousMillis >= period) {
-        previousMillis = currentMillis;
+    if (millis() - previousMillis >= period) {
+        previousMillis = millis();
 
         for (int i = 0; i < 5; i++){
             s.SetDigit(i, text[last+i]);

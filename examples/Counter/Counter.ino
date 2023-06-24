@@ -50,8 +50,8 @@ TinySeg s(charPins, segPins);
 
 // Vars for counting loop
 long previousMillis = 0;
-const long period = 1000;
-long counter = 0;
+const int period = 1000;
+int counter = 0;
 
 // Nothing to see here...
 void setup() {
@@ -61,9 +61,8 @@ void setup() {
 void loop() {
 
     // Use millis() to wait until next period
-    long currentMillis = millis();
-    if (currentMillis - previousMillis >= period) {
-        previousMillis = currentMillis;
+    if (millis() - previousMillis >= period) {
+        previousMillis = millis();
         
         s.Write(counter++);
 

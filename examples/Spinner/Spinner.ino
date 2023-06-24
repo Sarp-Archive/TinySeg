@@ -50,8 +50,8 @@ TinySeg s(charPins, segPins);
 
 // Vars for spinning loop
 long previousMillis = 0;
-const long period = 100;
-long counter = 0;
+const int period = 100;
+int counter = 0;
 
 // Spinner animation keyframes
 int spinner[6][8] = {
@@ -71,9 +71,8 @@ void setup() {
 void loop() {
 
     // Use millis() to wait until next period
-    long currentMillis = millis();
-    if (currentMillis - previousMillis >= period) {
-        previousMillis = currentMillis;
+    if (millis() - previousMillis >= period) {
+        previousMillis = millis();
 
         if(++counter > 5) counter = 0;
         s.SetDigit(2, spinner[counter]);
