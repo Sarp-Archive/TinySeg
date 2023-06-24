@@ -3,22 +3,22 @@
 class TinySeg {
   public:
 
-    int charPins[5];
-    int segmentPins[8];
+    uint8_t charPins[5];
+    uint8_t segmentPins[8];
 
     TinySeg();
-    TinySeg(int c[5], int s[8]);
+    TinySeg(uint8_t c[5], uint8_t s[8]);
     void InitPins();
 
 
     bool* GetArray(char character);
-    bool* GetArray(int num);
+    bool* GetArray(uint8_t num);
     bool* GetEmpty();
 
 
-    void SetDigit(int index, int num);
-    void SetDigit(int index, char character);
-    void SetDigit(int index, bool* array);
+    void SetDigit(uint8_t index, uint8_t num);
+    void SetDigit(uint8_t index, char character);
+    void SetDigit(uint8_t index, bool* array);
 
 
     void Write(int num);
