@@ -73,7 +73,7 @@ String TinySeg::FormatString(String text) {
 
 void TinySeg::Write(int num) {
     int index = 0;
-    for (int i = 10'000; i >= 1; i /= 10) {
+    for (int i = 10000; i >= 1; i /= 10) {
         int digit = (num / i) % 10;
         SetDigit(index, digit);
         index++;
