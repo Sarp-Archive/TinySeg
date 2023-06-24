@@ -58,19 +58,6 @@ void TinySeg::SetDigit(int index, int* array) {
 
 
 
-String TinySeg::FormatString(String text) {
-    int length = text.length();
-    
-    if (length >= 5) {
-        return text.substring(0, 5);
-    } else {
-        String spaces(5 - length, ' ');
-        return spaces + text;
-    }
-}
-
-
-
 void TinySeg::Write(int num) {
     int index = 0;
     for (int i = 10000; i >= 1; i /= 10) {
@@ -79,10 +66,15 @@ void TinySeg::Write(int num) {
         index++;
     }
 }
-void TinySeg::Write(String text) {
+void TinySeg::Write(char* text) {
+    int l = strlen(text);
     int i = 0;
-    for(char c : FormatString(text)){
-        SetDigit(i++, c);
+    while(i < 5-l)
+    {
+        SetDigit(i++, GetEmpty());
+    }
+    for(int j = 0; j < l; j++){
+        SetDigit(i+j, text[j]);
     }
 }
 

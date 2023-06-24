@@ -21,11 +21,8 @@ class TinySeg {
     void SetDigit(int index, int* array);
 
 
-    String FormatString(String text);
-
-
     void Write(int num);
-    void Write(String text);
+    void Write(char* text);
 
 
     void FillDisplay(bool state);
